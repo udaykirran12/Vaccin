@@ -12,12 +12,9 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
 const PORT = process.env.PORT || 3000;
-<<<<<<< HEAD
 const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/"
 // const url = "mongodb+srv://udayAdmin:<password>@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
-=======
-const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
->>>>>>> origin/master
+// const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
 // const url = "mongodb://localhost:27017";
 mongoose.connect(url).then(()=>{
     console.log("db connected");
@@ -50,8 +47,5 @@ const adminDashboardRouter = require("./routes/admin/adminDashboardRouter")
 app.use('/adminLogin/adminDashboard',adminDashboardRouter)
 
 const adminSearchRouter = require("./routes/admin/adminSearchRouter")
-<<<<<<< HEAD
 app.use('/adminLogin/adminDashboard/adminSearch', adminSearchRouter)
-=======
 app.use('/adminLogin/adminDashboard/adminSearch', adminSearchRouter)
->>>>>>> origin/master
