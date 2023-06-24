@@ -4,4 +4,4 @@ const adminDashboardController = require("../../controller/admin/adminDashboardC
 router.get("/",adminDashboardController.adminDashboard) 
 router.post("/",adminDashboardController.adminDashboardAddCentre)
 module.exports = router;
-// router.post("/",adminDashboardController.adminDashboard)
+// router.post("/",adminDashboardController.adminDashboard) 

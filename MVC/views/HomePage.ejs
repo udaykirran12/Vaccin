@@ -4,133 +4,163 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="HomePage.css"> -->
+    <title>CoviNOW</title>
     <style>
-        header
-      {
-    margin: 10px;
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-     }
+        /* Classic CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            z-index: 0;
+        }
 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px;
+            z-index: 1;
+        }
 
-    main
-    {
-    display: flex;
-    justify-content: space-around;
-    margin-left: 50px;
-    margin-right: 50px;
-    }
+        h1 {
+            color: #007bff;
+            font-size: 20px;
+            /* margin: 10px; */
+        }
 
-    div1
-    {
-    background-color: cornsilk;
-    text-align: center;
-    padding: 10px;
+        #loginBtn,
+        #signupBtn {
+            padding: 10px 20px;
+            background-color: #f6d278;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+           
+        }
 
-    border-radius: 20px;
-    }
+        #bodyMain {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
 
-    div{
-    background-color: cornsilk;
-    margin-top: 80px;
-    margin-bottom: 80px;
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 20px;
-    padding: 20px;
-    padding-top: 40px;
-    }
+        div1
+        {
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 20px;
+            background-color: #fff;
+            text-align: center;
+            height: fit-content;
+            margin:auto;
 
-    .steps
-    {
-    text-align: left;
-    font-size: 30px;
-    }
-button {
-    height: 60px;
+        }
+        div {
+            background-color: #fff;
+            margin: auto;
+            /* margin-top: 80px; */
+            /* margin-bottom: 80px; */
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 20px;
+            padding: 20px;
+            padding-top: 40px;
+        }
 
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #f6d278;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  button:hover {
-    background-color: #23c483;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
-  button:active {
-    transform: translateY(-1px);
-  }
+        btns
+        {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px;
+        }
+
+        .steps {
+            text-align: left;
+            font-size: 30px;
+        }
+
+        button {
+            height: 60px;
+            padding: 1.3em 3em;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            color: #000;
+            background-color: #007bff;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 15px 20px rgba(46, 94, 177, 0.4);
+            color: #fff;
+            transform: translateY(-7px);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body>
 
     <header id="header">
-            <img src="/assets/logo.png" alt="Logo">
+        <h1 style="font-size: 40px; margin-left: 10px;">Covinow</h1>
+        <btns>
             <form action="/login" method="get">
                 <button id="loginBtn">Login</button>
             </form>
             <form action="/userRegister" method="get">
                 <button id="signupBtn">Sign Up</button>
             </form>
+        </btns>
     </header>
     
     <main id="bodyMain">
         
-        <div1 id="leftpart">
-            <img src="/assets/covid gif.gif" alt="covid img1">
-        <h2>ABOUT:</h2>
-        <p>
-            Welcome to our webpage dedicated to COVID-19 vaccination in India. <br>
-            The COVID-19 pandemic has impacted the world, and India has been one <br>
-            of the countries significantly affected by the virus. As the second <br>
-            most populous country in the world, India faced unique challenges in<br>
-            managing the spread of the virus. However, through a robust vaccination<br>
-            campaign and collective efforts, India is striving towards overcoming <br>
-            this crisis and safeguarding its population.<br>
-        </p>
-
-        <h2>Vaccine Availability and Types:
-        </h2>
-        <p>
-            India authorized several COVID-19 vaccines for emergency use, contributing <br>
-            to a diverse portfolio of immunization options. These include <br>
-            Covishield (developed by Oxford-AstraZeneca and manufactured by the Serum <br>
-            Institute of India), Covaxin (developed by Bharat Biotech),<br>
-            and Sputnik V (developed by Russia's Gamaleya Research Institute).<br>
-            These vaccines have undergone rigorous testing and are proven to be safe<br>
-            and effective in preventing severe illness and reducing transmission.<br>
-        </p>
-
-        </div1>
-
-        <div id="rightpart">
-            <h2 style="text-decoration:underline; color:darkgoldenrod; text-align: center;">
-                Vaccination Steps:
-            </h2>
-            <p id="steps">
-                1. Login/Signup with your details.         <br>
-                2. Book Your Slot with the Nearest center. <br>
-                3. Visit your Center on the booking day.   <br>
-                4. Get your vaccination certificate.       <br>
+        <div id="leftpart">
+            <h2 style="text-decoration:underline; color: #007bff; text-align: center;">About:</h2>
+            <p>
+                Welcome to our webpage dedicated to COVID-19 vaccination in India. <br>
+                The COVID-19 pandemic has impacted the world, and India has been one <br>
+                of the countries significantly affected by the virus. As the second <br>
+                most populous country in the world, India faced unique challenges in<br>
+                managing the spread of the virus. However, through a robust vaccination<br>
+                campaign and collective efforts, India is striving towards overcoming <br>
+                this crisis and safeguarding its population.<br>
             </p>
+
+            <!-- <h2>Importance of Vaccination :</h2>
+            <p>
+                COVID-19 vaccination is crucial in India to safeguard lives, protect <br>
+                communities, and curb the spread of the virus. Vaccination plays a <br>
+                vital role in preventing severe illness, reducing hospitalizations,<br>
+                and saving lives. By getting vaccinated, you contribute to <br>
+                building herd immunity, enabling the nation to recover and <br>
+                resume normalcy. Together, let's prioritize vaccination,protect <br> 
+                ourselves, and ensure a healthier and safer future for India. <br>
+                Get vaccinated today!
+            </p> -->
         </div>
-        
+
+        <div1 id="rightpart">
+            <h2 style="text-decoration:underline; color: #007bff; text-align: center;">Vaccination Steps:</h2>
+            <p class="steps">
+                1. Login/Signup with your details.<br>
+                <br>
+                2. Book Your Slot with the Nearest center.<br>
+                <br>
+                3. Visit your Center on the booking day.<br>
+                <br>
+                4. Get your vaccination certificate.<br>
+            </p>
+        </div1>
 
     </main>
     

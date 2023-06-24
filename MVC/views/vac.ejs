@@ -30,6 +30,8 @@ h1 {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: 0px 10px;
+
 }
 
 form h2 {
@@ -81,29 +83,21 @@ form button:hover {
 
         <!-- Form for slot booking -->
         <div class="form">
-            <form action="/book" method="POST">
-                <h2>Book Vaccination Slot</h2>
-                <label for="district">Select District:</label>
-                <select id="district" name="district">
-                    <option value="district1">District 1</option>
-                    <option value="district2">District 2</option>
-                    <option value="district3">District 3</option>
-                    <!-- Add more options for districts -->
-                </select>
-                <br><br>
-                <label for="hospital">Hospital ID:</label>
-                <input type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
-                <br><br>
-                <label for="dosage">Dosage Name:</label>
-                <select id="dosage" name="dosage">
-                    <option value="covishield">Covishield</option>
-                    <option value="spotnik">Spotnik</option>
-                    <!-- Add more options for dosage names -->
-                </select>
-                <br><br>
-                <button type="submit">Book Slot</button>
+            <form action="/bookSlot" method="post">
+              <h2>Book Vaccination Slot</h2>
+              <label for="district">Enter District:</label>
+              <input type="text" name="district" placeholder="Enter District" required="">
+              <br><br>
+              <label for="hospital" >Hospital ID:</label>
+              <input required="" type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
+              <br><br>
+              <label for="date">Select Date:</label>
+              <input required="" type="date" id="date" name="date">
+              <br><br>
+              <button type="submit">Book Slot</button>
             </form>
-        </div>
+          </div>
+          
     </div>
 </body>
 </html>

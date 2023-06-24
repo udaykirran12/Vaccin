@@ -14,7 +14,7 @@ exports.userLogin = async (req,res) => {
     try{ 
         console.log("entered try block")
         const oldUser = await Users.findOne({email:userEntry.email})
-        console.log(oldUser.password+" "+userEntry.password);
+        // console.log(oldUser.password+" "+userEntry.password);
         if(oldUser && await oldUser.comparePasswords(userEntry.password)){
             // res.send("login successful");
             console.log("login successful");

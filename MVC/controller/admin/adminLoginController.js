@@ -18,6 +18,7 @@ exports.adminLogin = async (req,res)=>{
     try{
         console.log("entered try block")
         const oldAdmin = await  Admin.findOne({username:admin.username})
+        console.log("correct password: "+oldAdmin.password)
         if(oldAdmin && await oldAdmin.comparePasswords(admin.password)){
             console.log("login successful");
             res.redirect('/adminLogin/adminDashboard');
