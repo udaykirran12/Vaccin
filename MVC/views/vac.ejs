@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Slot Booking</title>
+    <style>
+		body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form {
+    flex-basis: 48%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form h2 {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+	</style>
+</head>
+<body>
+    <h1>Vaccination Slot Booking</h1>
+
+    <div class="container">
+        <!-- Form for searching vaccination center by district -->
+        <div class="form">
+            <form action="/search" method="POST">
+                <h2>Search Vaccination Center</h2>
+                <label for="district">Select District:</label>
+                <input type="text" id="district" name="district" placeholder="Enter district name">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Form for slot booking -->
+        <div class="form">
+            <form action="/book" method="POST">
+                <h2>Book Vaccination Slot</h2>
+                <label for="district">Select District:</label>
+                <select id="district" name="district">
+                    <option value="district1">District 1</option>
+                    <option value="district2">District 2</option>
+                    <option value="district3">District 3</option>
+                    <!-- Add more options for districts -->
+                </select>
+                <br><br>
+                <label for="hospital">Hospital ID:</label>
+                <input type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
+                <br><br>
+                <label for="dosage">Dosage Name:</label>
+                <select id="dosage" name="dosage">
+                    <option value="covishield">Covishield</option>
+                    <option value="spotnik">Spotnik</option>
+                    <!-- Add more options for dosage names -->
+                </select>
+                <br><br>
+                <button type="submit">Book Slot</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- <link rel="stylesheet" href="loginPage.css"> -->
+    <style>
+        div{
+    text-align: center;
+}
+
+body{
+    background-color: azure;
+}
+main{
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-around;
+}
+button{
+    align-self: auto;
+    text-align: center;
+    background-color:cornflowerblue;
+    cursor: pointer;
+}
+
+.userimg
+{
+    border-radius: 50%;
+}
+.adminimg
+{
+    border-radius: 50%;
+}
+
+.link{
+    text-decoration: underline;color: gold;
+}
+
+.logtext
+{
+    color: firebrick;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="/assets/logo.png" alt="Logo">
+    </header>
+
+    <div>
+        <h2 id="logtext">LOGIN PAGE</h2>
+    </div>
+    
+    <main>
+        <form action="/userLogin" method="get">
+            <button id="userLogin">
+                <img id="userimg" src="/assets/user.png" alt="user">
+                <h2 class="link">User Login</h2>
+            </button>
+        </form>
+ 
+        <form action="/adminLogin" method="get">
+            <button id="adminLogin">
+                <br>
+                <img id=" adminimg" src="/assets/admin.png" alt="admin"> 
+                <h2 class="link">Admin Login</h2>
+            </button>
+        </form>
+    </main>
+    
+
+    <script>
+        let user=document.getElementById("userLogin");
+
+        let admin=document.getElementById("adminLogin");
+
+        user.onclick= function toUser()
+        {
+            
+            window.location.href="userLogin.html";
+        }
+
+        admin.onclick=  function toAdmin()
+        {
+            // give here admin login page
+            console.log("yes");
+            // window.location.href=" ";
+        }
+
+    </script>
+</body>
+</html>
