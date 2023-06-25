@@ -16,7 +16,8 @@ exports.adminDashboard = async(req,res)=>{
             id: centres[i].id,
             name: centres[i].name,
             address:centres[i].street+" "+centres[i].district+" "+centres[i].state,
-            doses:centres[i].doses
+            doses:centres[i].doses,
+            workingHours:centres[i].workingHours
         }
         centreList.push(obj);
     }
@@ -31,7 +32,8 @@ exports.adminDashboardAddCentre = async(req,res)=>{
         street:req.body.street,
         district:req.body.district,
         state:req.body.state,
-        doses:0
+        doses:0,
+        workingHours:req.body.workingHours
     })
     try{
         const entry = await newCentre.save(); 

@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
+const express = require("express")
+const session = require("express-session")
+const mongodbSession = require("connect-mongodb-session")(session)
 const Users = require("../../models/userSchema")
 const Centre = require("../../models/centreSchema")
+const querystring = require('node:querystring');
 exports.showLoginPage = async (req,res)=>{
     try {
 
@@ -26,7 +30,6 @@ exports.userLogin = async (req,res) => {
     try{ 
         console.log("entered try block")
         const oldUser = await Users.findOne({email:userEntry.email})
-        // console.log(oldUser.password+" "+userEntry.password);
         if(oldUser && await oldUser.comparePasswords(userEntry.password)){
             const centreList = [];
             const centres = await Centre.find({});
@@ -39,15 +42,26 @@ exports.userLogin = async (req,res) => {
                 }
                 centreList.push(obj);
             }
-            res.render("vac",{list:centreList});
+            // console.log(centreList)
+            req.session.isAuth = true;
+            req.session.username = await Users.findOne({email:req.body.email},'username')
+            const queryObject = {
+                list: JSON.stringify(centreList),
+                error: ''
+            }; 
+            const queryString = '?'+querystring.stringify(queryObject);
+            res.redirect('/vac'+queryString); // Redirect to /vac with query parameters        
+            // res.render("vac",{list:centreList, error:""});
+            // write your redirect code here
         }
         else{
             // alert("incorrect details, Try Again")
             res.render("userLogin");
         }
     }
-    catch(err){
+    catch(err){ 
         res.send(err); 
     }
 }
+
 

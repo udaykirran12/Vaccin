@@ -12,7 +12,7 @@
             padding: 0;
         }
     
-        h1 {
+        .title {
             text-align: center;
             margin-top: 20px;
         }
@@ -90,12 +90,37 @@
             background-color: #f2f2f2;
             font-weight: bold;
         }
+        header
+        {
+            padding-left: 10px;
+            padding-right: 10px;
+            display: flex;
+            background-color: beige;
+            /* justify-content:space-between; */
+        }
+        .header-div
+        {
+            display: flex;
+            /* justify-content:space-evenly; */
+            gap: 0px 70px;
+            justify-content: end;
+        }
     </style>
     
 </head>
 <body>
-    <h1>Vaccination Slot Booking</h1>
-
+    <header>
+        <h1 style="font-size: 36px; width: 50%; color:#007Bff; ">Covinow</h1>
+        <div class="header-div" style="width: 50%;">
+             <h2>
+                <a href="/">Home</a> 
+            </h2>
+            <h2>
+                <a href="/logout">Logout </a>
+            </h2>
+        </div>
+    </header>
+    <h1 class="title">Vaccination Slot Booking</h1>
     <div class="container">
         <!-- Form for searching vaccination center by district -->
         <div class="left-form">
@@ -113,6 +138,7 @@
                         <th>Hosp. Name</th>
                         <th>Address</th>
                         <th>No. of doses booked today</th>
+                        <th>workingHours</th>
                     </tr>
                     <% for (var i = 0; i < list.length; i++) { %>
                         <% if ((list[i].name).length === 0 || (list[i].address).length === 0) { %>
@@ -123,6 +149,7 @@
                             <td><%= list[i].name %></td>
                             <td><%= list[i].address %></td>
                             <td><%=list[i].doses%></td>
+                            <td><%=workingHours%></td>
                         </tr>
                     <% } %>
                   </table>
@@ -133,9 +160,7 @@
         <div class="right-form">
             <form action="/bookSlot" method="post">
               <h2>Book Vaccination Slot</h2>
-              <!-- <label for="district">Enter District:</label>
-              <input type="text" name="district" placeholder="Enter District" required="">
-              <br><br> -->
+              <p><%=error%></p>
               <label for="hospital" >Hospital ID:</label>
               <input required="" type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
               <br><br>

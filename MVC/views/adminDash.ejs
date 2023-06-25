@@ -118,6 +118,7 @@
           <th>Hosp. Name</th>
           <th>Address</th>
           <th>No. of doses booked today</th>
+          <th>workingHours</th>
       </tr>
       <% for (var i = 0; i < list.length; i++) { %>
           <% if ((list[i].name).length === 0 || (list[i].address).length === 0) { %>
@@ -128,6 +129,7 @@
               <td><%= list[i].name %></td>
               <td><%= list[i].address %></td>
               <td><%=list[i].doses%></td>
+              <td><%=list[i].workingHours%></td>
           </tr>
       <% } %>
     </table>

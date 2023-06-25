@@ -1,5 +1,9 @@
 require('dotenv').config()
+//session modules down
 const express = require("express");
+const session = require("express-session")
+const mongodbSession = require("connect-mongodb-session")(session)
+//session modules up
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -10,7 +14,6 @@ const staticPath = path.join(__dirname, "public");
 app.use(express.static(staticPath));
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
-
 const PORT = process.env.PORT || 3000;
 const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/"
 // const url = "mongodb+srv://udayAdmin:<password>@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
@@ -22,12 +25,46 @@ mongoose.connect(url).then(()=>{
         console.log("server started");
     }) 
 })
+const store = new mongodbSession({
+    uri:url,
+    collection:'mySession'
+})
+app.use(session({
+    secret: 'key',
+    resave:false,
+    saveUninitialized:false,
+    store:store,
+}))
+const auth = (req,res,next)=>{
+    if(req.session.isAuth){
+        next()
+    }
+    else{
+        res.redirect('/homepage')
+    }
+}
+app.get('/logout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err)throw err;
+        else res.redirect('/');
+    })
+})
 app.get('/', (req,res)=>{
     res.render("HomePage");
 })
-app.get('/login', (req,res)=>{
+app.get('/login', (req,res)=>{ 
     res.render("loginPage");
 })
+app.get('/vac', auth, (req, res) => {
+    const { list, error } = req.query;
+  
+    // Parsing the query parameters
+    const decodedList = JSON.parse(decodeURIComponent(list));
+    const decodedError = decodeURIComponent(error);
+  
+    // Render the 'vac' template with the retrieved data
+    res.render('vac', { list: decodedList, error: decodedError });
+});
 const slotBookRouter = require('./routes/user/slotBookRouter')
 app.use('/bookSlot',slotBookRouter)
 

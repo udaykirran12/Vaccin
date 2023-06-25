@@ -5,6 +5,7 @@ const centreSchema = new mongoose.Schema({
     street:{type:String,required:true},
     district:{type:String,required:true},
     state:{type:String,required:true},
-    doses:{type:Number,required:true}
+    doses:{type:Number,required:true},
+    workingHours:{type:String,required:true}
 })
 module.exports = mongoose.model("centreSchema",centreSchema) 
