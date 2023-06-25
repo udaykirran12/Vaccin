@@ -1,6 +1,17 @@
 const mongoose = require("mongoose")
 const Users = require("../../models/userSchema")
 exports.showLoginPage = async (req,res)=>{
+    try {
+
+        const users = await Users.find({}).exec();
+        console.log("loginpage try block "); 
+        console.log(users+" "+users.length);
+        for (let i = 0; i < users.length; i++) {
+          console.log(users[i].username + " " + users[i].password);
+        }
+      } catch (error) {
+        console.error(error);
+      }
     res.render("userLogin")
 } 
 exports.userLogin = async (req,res) => {

@@ -8,6 +8,7 @@ app.use(express.json());
 const Centre = require(modelsPath+"/centreSchema");
  
 exports.adminDashboard = async(req,res)=>{
+    console.log("dashboard entered");
     const centreList = [];
     const centres = await Centre.find({});
     for(let i=0;i<centres.length;i++){

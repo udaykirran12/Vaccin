@@ -41,11 +41,14 @@ const userLoginRouter = require("./routes/user/userLogInRouter")
 app.use('/userLogin', userLoginRouter)
 
 const adminLoginRouter = require("./routes/admin/adminLoginRouter")
-app.use('/adminLogin', adminLoginRouter)
+app.use('/adminLogin', adminLoginRouter) 
+
+const adminUpdateRouter = require("./routes/admin/adminUpdateCentreRouter")
+app.use('/adminLogin/adminDashboard/updateCentre', adminUpdateRouter)
 
 const adminDashboardRouter = require("./routes/admin/adminDashboardRouter")
 app.use('/adminLogin/adminDashboard',adminDashboardRouter)
 
 const adminSearchRouter = require("./routes/admin/adminSearchRouter")
 app.use('/adminLogin/adminDashboard/adminSearch', adminSearchRouter)
-app.use('/adminLogin/adminDashboard/adminSearch', adminSearchRouter)
+// app.use('/adminLogin/adminDashboard/adminSearch', adminSearchRouter)

@@ -93,7 +93,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>CoviNOW</h1> <!-- Replace "Vaccination Centre" with "CoviNOW" -->
+    <h1>Vaccination Centres</h1> <!-- Replace "Vaccination Centre" with "CoviNOW" -->
     <div class="form-row">
       <div class="one">
         <input type="text" placeholder="Search by District">
@@ -107,7 +107,9 @@
         <form action="/handleCentre" method="get">
           <button type="submit" class="button">Add Vaccine Center</button>
         </form>
-        <button class="button">Update</button>
+        <form action="/adminLogin/adminDashboard/updateCentre" method="get">
+          <button type="submit" class="button">Update</button>
+        </form>
       </div>
     </div>
     <table>
