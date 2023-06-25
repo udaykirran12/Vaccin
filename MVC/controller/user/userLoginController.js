@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Users = require("../../models/userSchema")
+const Centre = require("../../models/centreSchema")
 exports.showLoginPage = async (req,res)=>{
     try {
 
@@ -27,10 +28,18 @@ exports.userLogin = async (req,res) => {
         const oldUser = await Users.findOne({email:userEntry.email})
         // console.log(oldUser.password+" "+userEntry.password);
         if(oldUser && await oldUser.comparePasswords(userEntry.password)){
-            // res.send("login successful");
-            console.log("login successful");
-            // res.render(viewPath+"/admin/views/adminDashboard.ejs",{list:centreList});
-            res.render("vac");
+            const centreList = [];
+            const centres = await Centre.find({});
+            for(let i=0;i<centres.length;i++){
+                const obj = {
+                    id: centres[i].id,
+                    name: centres[i].name,
+                    address:centres[i].street+" "+centres[i].district+" "+centres[i].state,
+                    doses:centres[i].doses
+                }
+                centreList.push(obj);
+            }
+            res.render("vac",{list:centreList});
         }
         else{
             // alert("incorrect details, Try Again")

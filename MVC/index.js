@@ -31,7 +31,7 @@ app.get('/login', (req,res)=>{
 const slotBookRouter = require('./routes/user/slotBookRouter')
 app.use('/bookSlot',slotBookRouter)
 
-const addCentreRouter = require('./routes/user/addCentreRouter')
+const addCentreRouter = require('./routes/admin/addCentreRouter')
 app.use('/handleCentre', addCentreRouter)
 
 const userRegisterRouter = require("./routes/user/userRegisterRouter")

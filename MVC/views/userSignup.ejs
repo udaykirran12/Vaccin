@@ -147,12 +147,15 @@
       opacity: 0;
     }
   }
-    </style>
+  </style>
 </head>
 <body>
 
     <form class="form" action="/userRegister" method="post">
         <p class="title">Register </p>
+        <div>
+            <p class="error-message" style="font-size: 10px;color: red; font-weight: bold;"><%=error%></p>
+        </div>
         <p class="message">Enter Your Details here</p>
         <label>
             <input required="" placeholder="" type="text" class="input" name="username">
@@ -165,7 +168,7 @@
         <label>
           <input required="" placeholder="" type="password" class="input" name="password">
           <span>Password</span>
-          <p style="font-size: 10px; font-style: italic;">Password length should be at least 6</p>
+          <!-- <p style="font-size: 10px; font-style: italic;">Password length should be at least 6</p> -->
         </label>          
         <button class="submit" type="submit">Submit</button>
         <p class="signin">Already have an acount ? <a href="/userLogin">Log in </a> </p>

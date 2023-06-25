@@ -6,88 +6,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaccination Slot Booking</title>
     <style>
-		body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px; /* Increase the width of the container */
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+    
+        .left-form {
+            flex-basis: 70%; /* Set the width of the left form to 70% */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0px 10px;
+            height: 400px; /* Set the desired height for the left form */
+            overflow: auto; /* Enable scrolling for the left form */
+        }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-.form {
-    flex-basis: 48%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 0px 10px;
-
-}
-
-form h2 {
-    margin-bottom: 20px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-form input,
-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #45a049;
-}
-
-	</style>
+        .right-form {
+            flex-basis: 30%; /* Set the width of the right form to 30% */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0px 10px;
+        }
+    
+        form h2 {
+            margin-bottom: 20px;
+        }
+    
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    
+        form input,
+        form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        form button:hover {
+            background-color: #45a049;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+    
 </head>
 <body>
     <h1>Vaccination Slot Booking</h1>
 
     <div class="container">
         <!-- Form for searching vaccination center by district -->
-        <div class="form">
+        <div class="left-form">
             <form action="/search" method="POST">
                 <h2>Search Vaccination Center</h2>
                 <label for="district">Select District:</label>
                 <input type="text" id="district" name="district" placeholder="Enter district name">
                 <button type="submit">Search</button>
+                <br><br>
             </form>
+            <div>
+                <table>
+                    <tr>
+                        <th>Hosp. ID</th>
+                        <th>Hosp. Name</th>
+                        <th>Address</th>
+                        <th>No. of doses booked today</th>
+                    </tr>
+                    <% for (var i = 0; i < list.length; i++) { %>
+                        <% if ((list[i].name).length === 0 || (list[i].address).length === 0) { %>
+                            <% continue; %>
+                        <% } %>
+                        <tr>
+                            <td><%=list[i].id%></td>
+                            <td><%= list[i].name %></td>
+                            <td><%= list[i].address %></td>
+                            <td><%=list[i].doses%></td>
+                        </tr>
+                    <% } %>
+                  </table>
+            </div>
         </div>
 
         <!-- Form for slot booking -->
-        <div class="form">
+        <div class="right-form">
             <form action="/bookSlot" method="post">
               <h2>Book Vaccination Slot</h2>
-              <label for="district">Enter District:</label>
+              <!-- <label for="district">Enter District:</label>
               <input type="text" name="district" placeholder="Enter District" required="">
-              <br><br>
+              <br><br> -->
               <label for="hospital" >Hospital ID:</label>
               <input required="" type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
               <br><br>

@@ -35,16 +35,19 @@ exports.adminDashboardAddCentre = async(req,res)=>{
     })
     try{
         const entry = await newCentre.save(); 
-        res.redirect("/adminLogin/adminDashboard");
+        res.render("addVaccine",{error:"New Centre Added Successfully"});
     }
     catch(error){
-        res.send(error);
+        if(error.code===11000){
+          res.render("addVaccine",{error:"Hospital ID already exists"})
+        }
+        else res.send(error)
     }
 }
 
 // from addCentreRouter
 exports.showAddCentre = async (req,res)=>{
-  res.render("addVaccine")
+  res.render("addVaccine",{error:""})
 };
 exports.adminDashboardDeleteCentre = async (req, res) => {
   const id = req.body.id;
