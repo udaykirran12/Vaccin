@@ -20,7 +20,7 @@ To run this project locally, make sure you have Node.js installed. Then, follow 
 2) Navigate to the project directory: cd vaccino
 3) Go to MVC folder: cd MVC
 3) Install the dependencies: npm install
-4) Start the server: npm index.js
+4) Start the server: node index.js
 4) Open your browser and visit: http://localhost:3000
 ## Tech Stack
 
