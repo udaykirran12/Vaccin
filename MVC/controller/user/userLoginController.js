@@ -4,7 +4,6 @@ const session = require("express-session")
 const mongodbSession = require("connect-mongodb-session")(session)
 const Users = require("../../models/userSchema")
 const Centre = require("../../models/centreSchema")
-const querystring = require('node:querystring');
 exports.showLoginPage = async (req,res)=>{
     try {
 
