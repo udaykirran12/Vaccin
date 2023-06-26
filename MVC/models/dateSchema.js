@@ -4,9 +4,11 @@ const dateSchema = mongoose.Schema({
   id: { type: Number, required: true },
   date: { type: Date, required: true },
   dosages: { type: Number, required: true },
-  username: { type: String, required: true }
 });
+//primary key : id+date
+// dateSchema.medhos.update = async function(id,date,dosages,username){
 
+// };
 dateSchema.methods.add = async function(id, date, dosages, username) {
   try {
     const newRecord = new this.model({

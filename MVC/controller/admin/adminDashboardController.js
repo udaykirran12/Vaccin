@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
+const express = require("express");
 const path = require("path");
+
 const viewPath  = path.join(__dirname,"../../views");
 const modelsPath = path.join(__dirname,"../../models");
-const express = require("express");
+const Centre = require(modelsPath+"/centreSchema");
+
 const app = express();
 app.use(express.json());
-const Centre = require(modelsPath+"/centreSchema");
+
  
 exports.adminDashboard = async(req,res)=>{
     console.log("dashboard entered");

@@ -65,6 +65,7 @@ app.get('/vac', auth, (req, res) => {
     // Render the 'vac' template with the retrieved data
     res.render('vac', { list: decodedList, error: decodedError });
 });
+
 const slotBookRouter = require('./routes/user/slotBookRouter')
 app.use('/bookSlot',slotBookRouter)
 
@@ -75,7 +76,7 @@ const userRegisterRouter = require("./routes/user/userRegisterRouter")
 app.use('/userRegister', userRegisterRouter)
 
 const userLoginRouter = require("./routes/user/userLogInRouter")
-app.use('/userLogin', userLoginRouter)
+app.use('/userLogin', userLoginRouter) 
 
 const adminLoginRouter = require("./routes/admin/adminLoginRouter")
 app.use('/adminLogin', adminLoginRouter) 
