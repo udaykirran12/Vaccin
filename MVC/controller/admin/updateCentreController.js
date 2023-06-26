@@ -18,7 +18,7 @@ exports.handleUpdateCentre = async (req, res) => {
       centre.street = req.body.street;
       centre.district = req.body.district;
       centre.state = req.body.state;
-
+      centre.workingHours = req.body.workingHours
       // Save the updated centre
       await centre.save();
 

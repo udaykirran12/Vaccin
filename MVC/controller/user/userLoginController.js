@@ -25,7 +25,6 @@ exports.showLoginPage = async (req, res) => {
         error: ""
       };
       const queryString = "?" + querystring.stringify(queryObject);
-      // console.log(queryString);
       res.redirect("/vac" + queryString);
   }
   else

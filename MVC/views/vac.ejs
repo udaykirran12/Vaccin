@@ -122,7 +122,6 @@
     </header>
     <h1 class="title">Vaccination Slot Booking</h1>
     <div class="container">
-        <!-- Form for searching vaccination center by district -->
         <div class="left-form">
             <form action="/search" method="POST">
                 <h2>Search Vaccination Center</h2>
@@ -137,7 +136,6 @@
                         <th>Hosp. ID</th>
                         <th>Hosp. Name</th>
                         <th>Address</th>
-                        <th>No. of doses booked today</th>
                         <th>workingHours</th>
                     </tr>
                     <% for (var i = 0; i < list.length; i++) { %>
@@ -148,7 +146,6 @@
                             <td><%=list[i].id%></td>
                             <td><%= list[i].name %></td>
                             <td><%= list[i].address %></td>
-                            <td><%=list[i].doses%></td>
                             <td><%=list[i].workingHours%></td>
                         </tr>
                     <% } %>
@@ -160,9 +157,9 @@
         <div class="right-form">
             <form action="/bookSlot" method="post">
               <h2>Book Vaccination Slot</h2>
-              <p><%=error%></p>
+              <p style="color: red; font-weight: bold;"><%=error%></p>
               <label for="hospital" >Hospital ID:</label>
-              <input required="" type="text" id="hospital" name="hospital" placeholder="Enter hospital ID">
+              <input required="" type="text" id="hospital" name="id" placeholder="Enter hospital ID">
               <br><br>
               <label for="date">Select Date:</label>
               <input required="" type="date" id="date" name="date">

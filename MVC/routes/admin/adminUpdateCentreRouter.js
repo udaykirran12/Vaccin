@@ -5,4 +5,4 @@ const updateCentreController = require("../../controller/admin/updateCentreContr
 router.get('/', updateCentreController.showUpdatePage)
 router.post('/', updateCentreController.handleUpdateCentre)
 
-module.exports = router
+module.exports = router 

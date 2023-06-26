@@ -57,8 +57,6 @@ app.get('/login', (req,res)=>{
 })
 app.get('/vac', auth, (req, res) => {
     const { list, error } = req.query;
-  
-    // Parsing the query parameters
     const decodedList = JSON.parse(decodeURIComponent(list));
     const decodedError = decodeURIComponent(error);
   
