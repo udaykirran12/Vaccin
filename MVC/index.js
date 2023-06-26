@@ -43,6 +43,7 @@ const auth = (req,res,next)=>{
         res.redirect('/homepage')
     }
 }
+
 app.get('/logout',(req,res)=>{
     req.session.destroy((err)=>{
         if(err)throw err;
@@ -63,7 +64,12 @@ app.get('/vac', auth, (req, res) => {
     // Render the 'vac' template with the retrieved data
     res.render('vac', { list: decodedList, error: decodedError });
 });
-
+app.get('/adminLogout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err)throw err;
+        res.redirect('/');
+    })
+})
 const slotBookRouter = require('./routes/user/slotBookRouter')
 app.use('/bookSlot',slotBookRouter)
 

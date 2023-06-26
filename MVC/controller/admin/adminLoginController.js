@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const Admin = require("../../models/adminSchema");
+const express = require("express");
+const session = require("express-session");
+const mongodbSession = require("connect-mongodb-session")(session);
+
 exports.showLoginPage = async(req,res)=>{
     console.log("entered show login page");
     try {
@@ -10,7 +14,7 @@ exports.showLoginPage = async(req,res)=>{
           console.log(admins[i].username + " " + admins[i].password);
         }
     }catch(error){
-        console.log("no admins")
+        res.send(error)
     }
     res.render("adminLogin"); 
 } 
@@ -27,6 +31,8 @@ exports.adminLogin = async (req,res)=>{
         const oldAdmin = await  Admin.findOne({username:admin.username})
         // console.log("correct password: "+oldAdmin.password)
         if(oldAdmin && await oldAdmin.comparePasswords(admin.password)){
+            req.session.adminAuth = true
+            req.session.adminName = req.body.username
             res.redirect('/adminLogin/adminDashboard');
         }
         else{

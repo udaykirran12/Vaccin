@@ -7,7 +7,22 @@
       font-family: Arial, sans-serif;
     }
 
-    h1 {
+    header {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      background-color: beige;
+      justify-content:space-between;
+    }
+
+    .header-div {
+      display: flex;
+      justify-content:space-evenly;
+      gap: 0px 70px;
+      justify-content: end;
+    }
+
+    .container h1 {
       color: #fff;
       font-size: 24px;
       text-align: center;
@@ -84,16 +99,29 @@
       text-align: left;
       border-bottom: 1px solid #ccc;
     }
-
+    .headerclass{
+      background-color: none;
+    }
     /* Additional Styles */
     .one, .two {
       margin: 10px; /* Add margin to class=one and class=two divs */
-    }
+    } 
   </style>
 </head>
 <body>
+  <header>
+    <h1>Covinow</h1>
+    <div class="header-div" style="width: 50%;">
+      <h2>
+        <a href="/">Home</a> 
+      </h2>
+      <h2>
+        <a href="/adminlogout">Logout </a>
+      </h2>
+    </div>
+  </header>
   <div class="container">
-    <h1>Vaccination Centres</h1> <!-- Replace "Vaccination Centre" with "CoviNOW" -->
+    <h1>Vaccination Centres</h1>
     <div class="form-row">
       <div class="one">
         <input type="text" placeholder="Search by District">
@@ -114,23 +142,23 @@
     </div>
     <table>
       <tr>
-          <th>Hosp. ID</th>
-          <th>Hosp. Name</th>
-          <th>Address</th>
-          <th>No. of doses booked today</th>
-          <th>workingHours</th>
+        <th>Hosp. ID</th>
+        <th>Hosp. Name</th>
+        <th>Address</th>
+        <th>No. of doses booked today</th>
+        <th>workingHours</th>
       </tr>
       <% for (var i = 0; i < list.length; i++) { %>
-          <% if ((list[i].name).length === 0 || (list[i].address).length === 0) { %>
-              <% continue; %>
-          <% } %>
-          <tr>
-              <td><%=list[i].id%></td>
-              <td><%= list[i].name %></td>
-              <td><%= list[i].address %></td>
-              <td><%=list[i].doses%></td>
-              <td><%=list[i].workingHours%></td>
-          </tr>
+        <% if ((list[i].name).length === 0 || (list[i].address).length === 0) { %>
+          <% continue; %>
+        <% } %>
+        <tr>
+          <td><%=list[i].id%></td>
+          <td><%= list[i].name %></td>
+          <td><%= list[i].address %></td>
+          <td><%=list[i].doses%></td>
+          <td><%=list[i].workingHours%></td>
+        </tr>
       <% } %>
     </table>
   </div>
