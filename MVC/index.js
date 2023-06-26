@@ -7,7 +7,7 @@ const mongodbSession = require("connect-mongodb-session")(session)
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
-const app = express(); 
+const app = express();  
 app.use(express.json());
 const staticPath = path.join(__dirname, "public");
 // console.log(staticPath);
