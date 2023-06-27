@@ -15,7 +15,6 @@ exports.userRegister = async(req,res)=>{
     )
     try{
         const exist = await User.findOne({username:req.body.username})
-        console.log(exist+" "+exist.length);
         if(exist){
             res.render('userSignup',{error:"Username already exists"});
         }

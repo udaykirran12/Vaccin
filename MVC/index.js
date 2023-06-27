@@ -14,7 +14,7 @@ const staticPath = path.join(__dirname, "public");
 app.use(express.static(staticPath));
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/"
 // const url = "mongodb+srv://udayAdmin:<password>@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
 // const url = "mongodb+srv://udayAdmin:udayAdmin@cluster0.lsekvay.mongodb.net/Node-API?retryWrites=true&w=majority";
@@ -81,7 +81,7 @@ app.use('/userRegister', userRegisterRouter)
 
 const userLoginRouter = require("./routes/user/userLogInRouter")
 app.use('/userLogin', userLoginRouter) 
-
+ 
 const adminLoginRouter = require("./routes/admin/adminLoginRouter")
 app.use('/adminLogin', adminLoginRouter) 
 
