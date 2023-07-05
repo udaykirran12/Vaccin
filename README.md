@@ -3,10 +3,11 @@
 
 ### Web app for vaccination booking
 
-## **Note**: To DevRev company
-### For testing the admin module, use the following credentials:
-### Email: admin@gmail.com
-### Password: admin
+For testing the admin module, use the following credentials:
+
+Email: admin@gmail.com
+
+Password: admin
 
 
 
