@@ -4,7 +4,7 @@
 ### Web app for vaccination booking
 
 For testing the admin module, use the following credentials:
-
+ 
 Email: admin@gmail.com
 
 Password: admin
